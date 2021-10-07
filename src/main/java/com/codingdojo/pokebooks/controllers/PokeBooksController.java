@@ -70,6 +70,23 @@ public class PokeBooksController {
 		}
 	}
 	
+	@RequestMapping("/expenses/{id}")
+	public String show (Model model,
+						@PathVariable(value="id") Long id) {
+		PokeBook pokeBook = pokeBookService.findPokeBook(id);
+		
+		model.addAttribute("pokeBook", pokeBook);
+		
+		return "pokebooks/show.jsp";
+	}
+	
+	@RequestMapping(value="expenses/{id}", method=RequestMethod.DELETE)
+	public String destroy(@PathVariable("id") Long id) 
+	{
+		pokeBookService.deletePokeBook(id);
+		return "redirect:/expenses";
+	}
+	
 
 }
 

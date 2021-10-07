@@ -46,7 +46,7 @@
 	<c:forEach var="pokeBook" items = "${ pokeBooks }">
 	<tr>
 		<td>
-		<c:out value="${ pokeBook.expense }"/>
+		<a href="expenses/${ pokeBook.id }"><c:out value="${ pokeBook.expense }"/></a>
 		</td>
 		
 		<td>
@@ -55,6 +55,15 @@
 		
 		<td>
 		$<c:out value="${ pokeBook.amount }"/>
+		</td>
+		
+		<td>
+		<a href="expenses/${ pokeBook.id }/edit">edit</a>
+		<form action="/expenses/${ pokeBook.id}" method="post">
+    	<input type="hidden" name="_method" value="delete">
+    	<input type="submit" class= "btn btn-danger" value="Delete">
+		</form>
+		
 		</td>
 	
 	

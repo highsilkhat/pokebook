@@ -16,6 +16,9 @@
 <body>
 
 <h1>Edit Expense</h1>
+
+<a href="/expenses">Go back</a>
+
 <form:form action="/expenses/${pokeBook.id}" method="post" modelAttribute="pokeBook">
 	 <input type="hidden" name="_method" value="put">
 
